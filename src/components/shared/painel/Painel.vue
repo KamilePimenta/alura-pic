@@ -44,6 +44,7 @@ export default {
     overflow: hidden;
   }
 
+  .painel-fade-enter,
   .painel-fade-leave-active,
   .painel-fade-enter-active {
     transition: all 1s ease;
