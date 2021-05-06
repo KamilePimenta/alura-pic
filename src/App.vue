@@ -6,7 +6,7 @@
         class="field filtro"
         type="text"
         placeholder="Busque por uma imagem..."
-        v-on:input="filtro = $event.target.value"
+        @input="filtro = $event.target.value"
         >
       <ul class="list photos">
         <li class="item" v-for="foto of fotosComFiltro" :key="foto.id">
@@ -84,7 +84,13 @@ export default {
     line-height: 48px;
     border: 1px solid #eeeeee;
     border-radius: 5px;
+    outline: 0;
     box-sizing: border-box;
+  }
+
+  .field:focus {
+    border-color: #673ab7;
+    box-shadow: 0 0 4px rgba(104, 58, 183, 0.5);
   }
 
   .photos {
