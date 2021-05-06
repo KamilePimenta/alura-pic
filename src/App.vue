@@ -2,8 +2,14 @@
   <div id="app">
     <div class="gallery">
       <h1 class="title">{{ title }}</h1>
+      <input
+        class="field filtro"
+        type="text"
+        placeholder="Busque por uma imagem..."
+        v-on:input="filtro = $event.target.value"
+        >
       <ul class="list photos">
-        <li class="item" v-for="foto of fotos" :key="foto.id">
+        <li class="item" v-for="foto of fotosComFiltro" :key="foto.id">
           <meu-painel :titulo="foto.titulo">
             <img class="img" :src="foto.url" :alt="foto.titulo">
           </meu-painel>
@@ -25,6 +31,7 @@ export default {
     return {
       title: 'AluraPic',
       fotos: [],
+      filtro: '',
     }
   },
   created() {
@@ -36,6 +43,16 @@ export default {
       err => console.error(err)
     );
   },
+  computed: {
+    fotosComFiltro() {
+      if(this.filtro) {
+        let exp = RegExp(this.filtro.trim(), 'i');
+        return this.fotos.filter(foto => exp.test(foto.titulo));
+      } else {
+        return this.fotos
+      }
+    }
+  }
 }
 </script>
 
@@ -57,11 +74,26 @@ export default {
     text-transform: uppercase;
   }
 
+  .field {
+    display: block;
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto 30px;
+    padding: 0 15px;
+    background-color: #fafafa;
+    line-height: 48px;
+    border: 1px solid #eeeeee;
+    border-radius: 5px;
+    box-sizing: border-box;
+  }
+
   .photos {
     display: flex;
     align-items: stretch;
     justify-content: flex-start;
     flex-wrap: wrap;
+    margin: -10px;
+    padding: 0;
     list-style: none;
   }
 
