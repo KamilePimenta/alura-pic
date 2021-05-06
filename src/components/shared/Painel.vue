@@ -22,6 +22,8 @@ export default {
 
 <style scoped>
   .painel {
+    position: relative;
+    padding-bottom: 90px;
     border-radius: 5px;
     box-shadow: 4px 4px 8px rgba(0,0,0,.2);
     overflow: hidden;

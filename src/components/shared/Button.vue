@@ -44,13 +44,15 @@ export default {
     display: block;
     min-width: 120px;
     margin: 20px auto;
-    padding: 15px 30px;
+    padding: 0 30px;
     background-color: transparent;
     color: #673ab7;
+    line-height: 40px;
     border: 1px solid #673ab7;
     border-radius: 5px;
     transition: all .3s ease;
     cursor: pointer;
+    outline: 0;
   }
 
   .button.default {

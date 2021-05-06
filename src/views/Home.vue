@@ -70,7 +70,7 @@ export default {
 <style scoped>
   .photos {
     display: flex;
-    align-items: stretch;
+    align-items: flex-start;
     justify-content: flex-start;
     flex-wrap: wrap;
     margin: -10px;
@@ -79,7 +79,7 @@ export default {
   }
 
   .photos .item {
-    width: calc(33.33% - 20px);
+    width: calc(25% - 20px);
     margin: 10px;
   }
 
@@ -100,5 +100,12 @@ export default {
   .field:focus {
     border-color: #673ab7;
     box-shadow: 0 0 4px rgba(104, 58, 183, 0.5);
+  }
+
+  .button {
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
   }
 </style>
