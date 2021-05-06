@@ -4,12 +4,9 @@
       <h1 class="title">{{ title }}</h1>
       <ul class="list photos">
         <li class="item" v-for="foto of fotos" :key="foto.id">
-          <div class="painel">
-            <h2 class="title">{{ foto.titulo }}</h2>
-            <div class="content">
-              <img class="img" :src="foto.url" :alt="foto.titulo">
-            </div>
-          </div>
+          <meu-painel :titulo="foto.titulo">
+            <img class="img" :src="foto.url" :alt="foto.titulo">
+          </meu-painel>
         </li>
       </ul>
     </div>
@@ -17,8 +14,13 @@
 </template>
 
 <script>
+import Painel from './components/shared/painel/Painel.vue';
+
 export default {
   name: 'app',
+  components: {
+    'meu-painel': Painel,
+  },
   data () {
     return {
       title: 'AluraPic',
@@ -66,20 +68,6 @@ export default {
   .photos .item {
     width: calc(33.33% - 20px);
     margin: 10px;
-  }
-
-  .photos .painel {
-    border-radius: 5px;
-    overflow: hidden;
-  }
-
-  .photos .title {
-    margin: 0;
-    padding: 15px 20px;
-    background-color: #ede7f6;
-    color: #444;
-    font-size: 24px;
-    font-weight: bold;
   }
 
   .photos .img {
