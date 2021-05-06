@@ -2,19 +2,15 @@
   <div id="header">
     <div class="container">
       <router-link class="logo" :to="routes[0].path">AluraPic</router-link>
-      <nav class="menu">
-        <ul class="list">
-          <li class="item" v-for="route in routes" :key="route.id">
-            <router-link class="link" :to="route.path">{{ route.title }}</router-link>
-          </li>
-        </ul>
-      </nav>
+      <Menu :routes="routes"/>
     </div>
   </div>
 </template>
 <script>
 import { routes } from '../routes';
+import Menu from './Menu.vue';
 export default {
+  components: { Menu },
   data() {
     return {
       routes
@@ -36,27 +32,11 @@ export default {
     justify-content: space-between;
     padding: 0;
   }
-
-  #header a {
-    color: currentColor;
-    text-decoration: none;
-  }
   
   #header .logo {
     font-size: 32px;
     font-weight: 900;
     text-align: center;
     text-transform: uppercase;
-  }
-
-  #header .menu .list {
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    list-style: none;
-  }
-
-  #header .menu .item  {
-    margin-left: 30px;
   }
 </style>

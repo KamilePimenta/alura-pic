@@ -2,7 +2,9 @@
   <div id="app">
     <Header />
     <div class="container">
-      <router-view></router-view>
+      <transition name="page">
+        <router-view></router-view>
+      </transition>
     </div>
     <Footer />
   </div>
@@ -30,10 +32,25 @@ export default {
     font: 14px 'Montserrat', sans-serif;
   }
 
+  a {
+    color: currentColor;
+    text-decoration: none;
+  }
+
   .container {
     max-width: 1160px;
     margin: 0 auto;
     padding: 60px 0;
+  }
+
+  .page-enter,
+  .page-leave-active {
+    opacity: 0;
+  }
+
+  .page-leave-active,
+  .page-enter-active {
+    transition: opacity .2s ease;
   }
 
   .title {

@@ -42,26 +42,6 @@ export default {
     background-color: #673ab7;
   }
 
-  .painel .content {
-    position: relative;
-  }
-
-  .painel .content::after {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(104, 58, 183, .2);
-    transform: scale(0);
-    transition: transform .2s ease-in;
-  }
-
-  .painel:hover .content::after {
-    transform: scale(1);
-  }
-
   .painel-fade-enter,
   .painel-fade-leave-active {
     max-height: 0;

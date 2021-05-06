@@ -9,9 +9,14 @@
       >
     <ul class="list photos">
       <li class="item" v-for="foto of fotosComFiltro" :key="foto.id">
-        <meu-painel :titulo="foto.titulo">
-          <img-reponsiva :url="foto.url" :titulo="foto.titulo" />
-        </meu-painel>
+        <Painel :titulo="foto.titulo">
+          <ImgResponsiva :url="foto.url" :titulo="foto.titulo" />
+          <Button 
+            :label="'Remover'"
+            :action="'danger'"
+            :confirm="true"
+            @buttonClick="removePhoto(foto)"/>
+        </Painel>
       </li>
     </ul>
   </div>
@@ -20,17 +25,24 @@
 <script>
 import Painel from '../components/shared/Painel.vue';
 import ImgResponsiva from '../components/shared/ImgResponsiva.vue';
+import Button from '../components/shared/Button.vue';
 
 export default {
   components: {
-    'meu-painel': Painel,
-    'img-reponsiva': ImgResponsiva,
+    Painel,
+    ImgResponsiva,
+    Button,
   },
   data () {
     return {
       title: 'Galeria',
       fotos: [],
       filtro: '',
+    }
+  },
+  methods: {
+    removePhoto(foto) {
+      console.log('Você removeu a imagem ' + foto.titulo);
     }
   },
   created() {
@@ -75,7 +87,7 @@ export default {
     display: block;
     width: 100%;
     max-width: 400px;
-    margin: 0 auto 30px;
+    margin: 0 auto 60px;
     padding: 0 15px;
     background-color: #fafafa;
     line-height: 48px;
