@@ -28,7 +28,7 @@ export default {
   },
   data () {
     return {
-      title: 'AluraPic',
+      title: 'Galeria',
       fotos: [],
       filtro: '',
     }
