@@ -33,7 +33,6 @@ export default {
         }
         return;
       }
-
     }
   },
 }
@@ -43,7 +42,7 @@ export default {
   .button {
     display: block;
     min-width: 120px;
-    margin: 20px auto;
+    margin: 20px 10px;
     padding: 0 30px;
     background-color: transparent;
     color: #673ab7;

@@ -29,12 +29,50 @@ export default {
   }
 
   body {
+    color: #555;
     font: 14px 'Montserrat', sans-serif;
   }
 
   a {
     color: currentColor;
     text-decoration: none;
+  }
+
+  .flex {
+    display: flex;
+  }
+
+  .a-center {
+    align-items: center;
+  }
+  .a-start {
+    align-items: flex-start;
+  }
+  .a-end {
+    align-items: flex-end;
+  }
+  .a-stretch {
+    align-items: stretch;
+  }
+
+  .j-start {
+    justify-content: flex-start;
+  }
+  .j-end {
+    justify-content: flex-end;
+  }
+  .j-around {
+    justify-content: space-around;
+  }
+  .j-between {
+    justify-content: space-around;
+  }
+  .j-evenly {
+    justify-content: space-evenly;
+  }
+
+  .wrap {
+    flex-wrap: wrap;
   }
 
   .container {

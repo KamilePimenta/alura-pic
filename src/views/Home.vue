@@ -1,16 +1,16 @@
 <template>
   <div class="gallery">
     <h1 class="title">{{ title }}</h1>
-    <input
-      class="field filtro"
-      type="text"
-      placeholder="Busque por uma imagem..."
-      @input="filtro = $event.target.value"
-      >
+    <Input
+      :identifier="'search'"
+      :addClass="'filtro'"
+      :placeholder="'Busque por uma imagem...'"
+      @filter="filtro = $event"
+    />
     <ul class="list photos">
       <li class="item" v-for="foto of fotosComFiltro" :key="foto.id">
         <Painel :titulo="foto.titulo">
-          <ImgResponsiva v-transform :url="foto.url" :titulo="foto.titulo" />
+          <ImgResponsive v-transform :url="foto.url" :titulo="foto.titulo" />
           <Button 
             :label="'Remover'"
             :action="'danger'"
@@ -24,7 +24,8 @@
 
 <script>
 import Painel from '../components/shared/Painel.vue';
-import ImgResponsiva from '../components/shared/ImgResponsiva.vue';
+import ImgResponsive from '../components/shared/ImgResponsive.vue';
+import Input from '../components/shared/Input.vue';
 import Button from '../components/shared/Button.vue';
 
 import transform from '../directives/transform.js';
@@ -32,7 +33,8 @@ import transform from '../directives/transform.js';
 export default {
   components: {
     Painel,
-    ImgResponsiva,
+    ImgResponsive,
+    Input,
     Button,
   },
   directives: {
@@ -86,25 +88,6 @@ export default {
   .photos .item {
     width: calc(25% - 20px);
     margin: 10px;
-  }
-
-  .field {
-    display: block;
-    width: 100%;
-    max-width: 400px;
-    margin: 0 auto 60px;
-    padding: 0 15px;
-    background-color: #fafafa;
-    line-height: 48px;
-    border: 1px solid #eeeeee;
-    border-radius: 5px;
-    outline: 0;
-    box-sizing: border-box;
-  }
-
-  .field:focus {
-    border-color: #673ab7;
-    box-shadow: 0 0 4px rgba(104, 58, 183, 0.5);
   }
 
   .button {
