@@ -10,7 +10,7 @@
     <ul class="list photos">
       <li class="item" v-for="foto of fotosComFiltro" :key="foto.id">
         <Painel :titulo="foto.titulo">
-          <ImgResponsiva :url="foto.url" :titulo="foto.titulo" />
+          <ImgResponsiva v-transform :url="foto.url" :titulo="foto.titulo" />
           <Button 
             :label="'Remover'"
             :action="'danger'"
@@ -27,11 +27,16 @@ import Painel from '../components/shared/Painel.vue';
 import ImgResponsiva from '../components/shared/ImgResponsiva.vue';
 import Button from '../components/shared/Button.vue';
 
+import transform from '../directives/transform.js';
+
 export default {
   components: {
     Painel,
     ImgResponsiva,
     Button,
+  },
+  directives: {
+    transform
   },
   data () {
     return {
